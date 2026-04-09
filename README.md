@@ -1,1 +1,7 @@
 # An-Automated-Explainable-Pathomics-Framework-for-Tertiary-Lymphoid-Structures
+An automated computational pathology framework was proposed to discover the correlations between the spatial, architectural, and maturational heterogeneity of Tertiary Lymphoid Structures (TLSs) and tumor microenvironment in Pancreatic Ductal Adenocarcinoma (PDAC). Based on 7-color multiplex immunofluorescence (mIF) whole-slide images, this framework is further deployed for automated TLS segmentation, maturation grading, unsupervised phenotyping, and generating an explainable Random Survival Forest (RSF)-based risk score for patient prognostic stratification.
+
+The goal of this repository is:
+-to help researchers to reproduce the TLS pathomics framework (including mIF preprocessing, cell segmentation, TLS boundary delineation, and pathomics feature extraction) and expand it for immune microenvironment research in other solid tumors.
+-to help researchers build an end-to-end, explainable machine learning workflow to predict patient overall survival (OS) by capturing biologically interpretable TLS morphology and spatial organization, assisting in standardized prognostic assessment beyond conventional clinicopathological factors.
+-to provide custom Python scripts, QuPath Groovy scripts, and the trained RSF prognostic model for the migration of downstream tasks such as quantitative profiling of spatial interactions and immune cell architectures in multiplex imaging.
