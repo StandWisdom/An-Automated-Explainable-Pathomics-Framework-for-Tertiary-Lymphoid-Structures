@@ -32,3 +32,11 @@ python main.py
 
 ## Pipeline Detailed Steps
 1. WSI Preprocessing (P1-P3): Reads .czi files using slideio, performs histogram equalization, extracts thumbnails, and automatically detects candidate TLS regions using morphological operations.
+2. AI-driven Single Cell Segmentation (P4-P5): Uses Cellpose on the DAPI channel to detect nuclei, followed by a Watershed algorithm to segment the cytoplasm.
+3. TLS Identification & Maturation Grading (P6-P8):
+   - P6: Identifies Lymphocyte Aggregates (LAs) by overlaying CD20 and CD3 expression on segmented cells. 
+   - P7: Identifies Primary Follicle-like TLS (FLI-TLS) using CD21 contiguous areas.
+   - P8: Identifies Secondary Follicle-like TLS (FLII-TLS) using CD23 expression.
+4. QuPath & Visualization (P9-P10): Maps the classified TLSs back to the whole-slide coordinates and generates QuPath-compatible `.json` files.
+5. Pathomics Feature Extraction (P11): Extracts 39 features, including morphology (area, perimeter, diameter), cellular density (CD20/CD3 ratio), and maturation status. Saves as `extract_result.csv`.
+6. Tumor Proximity & Spatial Analysis (P12-P14): Calculates the interaction between TLSs and the surrounding tumor microenvironment using PanCK and Ki-67 channels at different radius ratios.
