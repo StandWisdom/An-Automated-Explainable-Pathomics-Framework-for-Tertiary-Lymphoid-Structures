@@ -5,3 +5,30 @@ The goal of this repository is:
 - to help researchers to reproduce the TLS pathomics framework (including mIF preprocessing, cell segmentation, TLS boundary delineation, and pathomics feature extraction) and expand it for immune microenvironment research in other solid tumors.
 - to help researchers build an end-to-end, explainable machine learning workflow to predict patient overall survival (OS) by capturing biologically interpretable TLS morphology and spatial organization, assisting in standardized prognostic assessment beyond conventional clinicopathological factors.
 - to provide custom Python scripts, QuPath Groovy scripts, and the trained RSF prognostic model for the migration of downstream tasks such as quantitative profiling of spatial interactions and immune cell architectures in multiplex imaging.
+
+## Installation
+```
+conda create -n tls_pathomics python=3.9
+conda activate tls_pathomics
+pip install -r requirements.txt
+
+git clone https://github.com/StandWisdom/An-Automated-Explainable-Pathomics-Framework-for-Tertiary-Lymphoid-Structures.git
+cd An-Automated-Explainable-Pathomics-Framework-for-Tertiary-Lymphoid-Structures
+```
+## Quick Start
+To run the full pipeline, you only need to interact with `main.py`.
+
+Open `main.py` and Modify the read_path variable to point to your `.czi` file directory. Modify the pmax and gpu_id if necessary.
+```
+# Inside main.py
+pmax = 16400  # Max pixel intensity threshold
+gpu_id = '0'  # Select GPU ID
+read_path = '/path/to/your/czi/directory' 
+```
+Run the script
+```
+python main.py
+```
+
+## Pipeline Detailed Steps
+1. WSI Preprocessing (P1-P3): Reads .czi files using slideio, performs histogram equalization, extracts thumbnails, and automatically detects candidate TLS regions using morphological operations.
